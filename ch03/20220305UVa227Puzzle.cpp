@@ -118,7 +118,7 @@ int main() {
 #ifdef DEBUG
         fprintf(fout, "Puzzle #%d:\n", puzzle_cnt++);
 #else
-        printf("Puzzle #%d\n", puzzle_cnt++);
+        printf("Puzzle #%d:\n", puzzle_cnt++);
 #endif // DEBUG
 
         if (illegal == 1) {

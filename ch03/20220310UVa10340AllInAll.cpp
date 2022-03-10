@@ -15,7 +15,7 @@ int main() {
     while (scanf("%s", kSourceString) != -1) {
         char character = '\0';
         char* p_source = kSourceString;
-        while ((scanf("%c", &character) == 1) && character != '\n') {
+        while ((character = getchar()) && character != '\n') {
             if (*p_source == character) {
                 p_source++;
             }

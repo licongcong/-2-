@@ -1,5 +1,15 @@
 /*
 * https://vjudge.net/problem/UVA-11809
+* Ax10^B = Mx2^N
+* ==> log2(Ax10^B) = log2(Mx2^N)
+* ==> log2(A) + Blog2(10) = log2(M) + N
+* ==> 1 > log2(M) > 0 ==> N = ceil(log2(A) + Blog2(10))
+* ==> pow(2, N_bit)-1 > N ==> E
+* 
+* log2(M) = log2(A) + Blog2(10) - (pow(2, N_bit)-1)
+* ==> The left most digit of mantissa must always be 1 
+* ==> M = 0.5 + M' = log2(A) + Blog2(10) - (pow(2, N_bit)-1)
+* ==> M' = log2(A) + Blog2(10) - (pow(2, N_bit)-1) - 0.5
 */
 
 #include <stdio.h>

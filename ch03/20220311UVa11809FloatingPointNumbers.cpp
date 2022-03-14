@@ -42,7 +42,7 @@ int main() {
 		// printf("log2_mantissa = %.15lf\n", mantissa);
 		int mantissa_bit_cnt = 1;
 		double sum_pow_2_x = 0;
-		while (sum_pow_2_x < mantissa && mantissa_bit_cnt < (MAX_MANTISSA_BIT_CNT+1)) {
+		while (sum_pow_2_x < mantissa && mantissa_bit_cnt < (MAX_MANTISSA_BIT_CNT+1) && (mantissa - sum_pow_2_x > 1e-5)) {
 			sum_pow_2_x += pow(2.0, -(++mantissa_bit_cnt));
 		}
 

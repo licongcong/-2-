@@ -6,8 +6,8 @@ using namespace std;
 
 namespace program_4_1_combinations {
     /*
-    * ¼ÆËã×éºÏÊı¡£±àĞ´º¯Êı£¬²ÎÊıÊÇÁ½¸ö·Ç¸ºÕûÊı n ºÍ m£¬·µ»Ø×éºÏÊı C_n^m = n!/m!(n-m)!¡£
-    * ÆäÖĞ m <= n <= 25¡£ÀıÈç n = 25, m = 12 Ê±´ğ°¸Îª5200300¡£
+    * è®¡ç®—ç»„åˆæ•°ã€‚ç¼–å†™å‡½æ•°ï¼Œå‚æ•°æ˜¯ä¸¤ä¸ªéè´Ÿæ•´æ•° n å’Œ mï¼Œè¿”å›ç»„åˆæ•° C_n^m = n!/m!(n-m)!ã€‚
+    * å…¶ä¸­ m <= n <= 25ã€‚ä¾‹å¦‚ n = 25, m = 12 æ—¶ç­”æ¡ˆä¸º5200300ã€‚
     */
     void GenerateCase() {
         FILE* fout;
@@ -35,7 +35,7 @@ namespace program_4_1_combinations {
 
     /*
     * C_n^m = n!/m!(n-m)! 
-    * £¨Êı¾İÒç³ö£©
+    * ï¼ˆæ•°æ®æº¢å‡ºï¼‰
     */
     long long Combinations(int n, int m) {
         return factorial(n) / (factorial(m) * factorial(n - m));
@@ -58,7 +58,7 @@ namespace program_4_1_combinations {
         return rst;
     }
     long long CombinationsFractionReduction(int n, int m) {
-        if (m < (n >> 1)) { // Ôö¼ÓÔ¼µôµÄÒò×ÓÊı£¬·ÀÖ¹Ô½½ç
+        if (m < (n >> 1)) { // å¢åŠ çº¦æ‰çš„å› å­æ•°ï¼Œé˜²æ­¢è¶Šç•Œ
             m = n - m;
         }
         
@@ -66,8 +66,8 @@ namespace program_4_1_combinations {
     }
 
     /*
-    * Õû¸ö¹ı³ÌÒ»Ö±½øĞĞÔ¼·Ö
-    * »¹¿ÉÒÔ½øĞĞ gcd() ½øĞĞ²¿·ÖÔ¼·Ö£¬¿ÉÒÔ¼õÉÙÄÚ²ãÑ­»·´ÎÊı
+    * æ•´ä¸ªè¿‡ç¨‹ä¸€ç›´è¿›è¡Œçº¦åˆ†
+    * è¿˜å¯ä»¥è¿›è¡Œ gcd() è¿›è¡Œéƒ¨åˆ†çº¦åˆ†ï¼Œå¯ä»¥å‡å°‘å†…å±‚å¾ªç¯æ¬¡æ•°
     */
     #define MAX_NUM_CNT             (26)
     long long CombinationsFractionReductionAll(int n, int m) {
@@ -79,12 +79,12 @@ namespace program_4_1_combinations {
             n_array[ni] = ni;
         }
 
-        // Ô¼µô m!
+        // çº¦æ‰ m!
         for (int mi = 1; mi <= m; mi++) {
             n_array[mi] = 1;
         }
 
-        // Ô¼µô (n-m)!
+        // çº¦æ‰ (n-m)!
         for (int mi = 1; mi <= n - m; mi++) {
             m_array[mi] = mi;
         }
@@ -120,7 +120,7 @@ namespace program_4_1_combinations {
 
 namespace program_4_3_prime {
     /*
-    * ËØÊıÅĞ¶¨¡£±àĞ´º¯Êı£¬²ÎÊıÊÇÒ»¸öÕıÕûÊı n£¬Èç¹ûËüÊÇËØÊı£¬·µ»Ø 1£¬·ñÔò·µ»Ø 0¡£
+    * ç´ æ•°åˆ¤å®šã€‚ç¼–å†™å‡½æ•°ï¼Œå‚æ•°æ˜¯ä¸€ä¸ªæ­£æ•´æ•° nï¼Œå¦‚æœå®ƒæ˜¯ç´ æ•°ï¼Œè¿”å› 1ï¼Œå¦åˆ™è¿”å› 0ã€‚
     */
     #define MAX_NUM                 (9999999999)
     void GenerateCase() {
@@ -148,7 +148,7 @@ namespace program_4_3_prime {
             return 0;
         }
 
-        int max_check_num = floor(sqrt(num) + 0.5); // ·ÀÖ¹ i * i > MAX_INT(MAX_UNSIGNED_LONG_LONG)
+        int max_check_num = floor(sqrt(num) + 0.5); // é˜²æ­¢ i * i > MAX_INT(MAX_UNSIGNED_LONG_LONG)
         for (int i = 2; i <= max_check_num; i++) {
             if (num % i == 0) {
                 return 0;
@@ -179,7 +179,7 @@ void swap(int a, int b) {
     b = t;
 }
 /*
-* ´«µİµØÖ· program 4_6
+* ä¼ é€’åœ°å€ program 4_6
 * void swap(int *a, int *b) {
 *     int t = *a;
 *     *a = *b;
@@ -188,8 +188,8 @@ void swap(int a, int b) {
 */
 int main() {
     int a = 3, b = 4;
-    swap(3, 4); // ´Ë´¦Ó¦¸ÃÊÇÊéÖĞµÄÎó±Ê£¬ÊéÖĞÏëĞ´µÄÓ¦¸ÃÊÇ swap(a, b);
-    // swap(&a, &b); // ´«µİµØÖ· program 4_6
+    swap(3, 4); // æ­¤å¤„åº”è¯¥æ˜¯ä¹¦ä¸­çš„è¯¯ç¬”ï¼Œä¹¦ä¸­æƒ³å†™çš„åº”è¯¥æ˜¯ swap(a, b);
+    // swap(&a, &b); // ä¼ é€’åœ°å€ program 4_6
     printf("%d %d\n", a, b);
     return 0;
 }
@@ -197,19 +197,19 @@ int main() {
 
 namespace program_4_7_sum_of_array {
     /*
-    * ¼ÆËãÊı×éÔªËØºÍ£¨Îó£©
+    * è®¡ç®—æ•°ç»„å…ƒç´ å’Œï¼ˆè¯¯ï¼‰
     */
     int sum(int a[]) {
         int ans = 0;
 
-        for (int i = 0; i < sizeof(a); i++) { // int a[] => int *a ==> sizeof(int *) != Êı×é a µÄ´óĞ¡
+        for (int i = 0; i < sizeof(a); i++) { // int a[] => int *a ==> sizeof(int *) != æ•°ç»„ a çš„å¤§å°
             ans += a[i];
         }
 
         return ans;
     }
 
-    // ĞŞ¸Ä·½°¸£ºÖ±½Ó´«ÈëÊı×é´óĞ¡
+    // ä¿®æ”¹æ–¹æ¡ˆï¼šç›´æ¥ä¼ å…¥æ•°ç»„å¤§å°
     int sum_array(int a[], int n) {
         int ans = 0;
         for (int i = 0; i < n; i++) {
@@ -218,15 +218,15 @@ namespace program_4_7_sum_of_array {
         return ans;
     }
 
-    // Ë¼¿¼Ìâ£º¶àÎ¬Êı×é¸ÃÈçºÎ´«µİ²ÎÊı£¿
-    // ²Î¿¼£ºhttps://blog.csdn.net/wokaowokaowokao12345/article/details/52999502
+    // æ€è€ƒé¢˜ï¼šå¤šç»´æ•°ç»„è¯¥å¦‚ä½•ä¼ é€’å‚æ•°ï¼Ÿ
+    // å‚è€ƒï¼šhttps://blog.csdn.net/wokaowokaowokao12345/article/details/52999502
 }
 
 namespace program_4_9_sum_of_part_array {
     /*
-    * ¼ÆËã×ó±ÕÓÒ¿ªÇø¼äÄÚµÄÔªËØºÍ£¨Ò»Î¬£¬Á½ÖÖĞ´·¨£©
+    * è®¡ç®—å·¦é—­å³å¼€åŒºé—´å†…çš„å…ƒç´ å’Œï¼ˆä¸€ç»´ï¼Œä¸¤ç§å†™æ³•ï¼‰
     */
-    // Ğ´·¨Ò»
+    // å†™æ³•ä¸€
     int sum(int* begin, int* end) {
         int size = end - begin;
         int rst = 0;
@@ -237,7 +237,7 @@ namespace program_4_9_sum_of_part_array {
 
         return rst;
     }
-    // Ğ´·¨¶ş
+    // å†™æ³•äºŒ
     int sum(int* begin, int* end) {
         int rst = 0;
 
@@ -248,6 +248,22 @@ namespace program_4_9_sum_of_part_array {
         return rst;
     }
 }
+
+namespace program_4_10_factorial {
+    /*
+    * ä½¿ç”¨é€’å½’è®¡ç®—é˜¶ä¹˜
+    */
+
+    int factorial(int n) {
+        if (n <= 1) {
+            return 1;
+        }
+
+        return n * factorial(n - 1);
+    }
+
+}
+
 int main() {
     // program_4_1_combinations::Test();
     // program_4_3_prime::Test();
